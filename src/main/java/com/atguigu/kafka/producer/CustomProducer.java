@@ -33,7 +33,7 @@ public class CustomProducer {
 //        stringStringKafkaProducer.send(new ProducerRecord<>("first", "atguigu"));
         // 发送一批数据
         for (int i = 0; i < 5; i++) {
-            // 模式就是异步发送的
+            // send方法默认就是异步发送的
             stringStringKafkaProducer.send(new ProducerRecord<>("first", "atguigu" + i));
         }
         // 3. 关闭资源
