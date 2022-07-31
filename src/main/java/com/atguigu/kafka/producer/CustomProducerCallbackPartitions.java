@@ -27,6 +27,9 @@ public class CustomProducerCallbackPartitions {
         properties.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
         properties.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
 
+        // 指定使用我们自定义的分区器
+        properties.put(ProducerConfig.PARTITIONER_CLASS_CONFIG, "com.atguigu.kafka.producer.MyPartitioner");
+
         // 1. 创建kafka生产者对象
         KafkaProducer<String, String> stringStringKafkaProducer = new KafkaProducer<>(properties);
         // 2. 发送一条数据,new ProducerRecord<>("first", "atguigu")第一个参数是topic主题的名字，第二个是要发送的值
